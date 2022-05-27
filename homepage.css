@@ -1,0 +1,255 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+
+#conscroll {
+	position: absolute;
+	left: 150px;
+	top: 200px;
+	border: 1px solid #fff;
+	padding: 10px 25px;
+	width: 15vw;
+	height: 30vh;
+}
+
+#scroll {
+	overflow: auto;
+	position: fixed;
+	left: 650px;
+	top: 510px;
+	width: 242.5px;
+	height: 160px;
+	/* border: 3px solid white; */
+}
+
+#conscroll h2 {
+	text-align: center;
+	color: rgb(0, 119, 255);
+	position: sticky;
+	top: 15px;
+	text-decoration: underline;
+}
+
+.dropbtn {
+	/* background-color: #4CAF50; */
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	/* background-color: #f9f9f9; */
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* .dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+} */
+
+.desc {
+	color: #f1f1f1;
+	font-family: 'IM Fell English', serif;
+	font-size: 25px;
+	padding: 200px;
+	animation-name: slide;
+	/* position: relative; */
+}
+
+.desc p {
+	animation-duration: 3s;
+	animation-name: slidein;
+}
+
+@keyframes slidein {
+	from {
+		margin-left: 100%;
+		width: 300%;
+	}
+
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}
+
+
+.wrapper {
+	width: 1170px;
+	margin: auto;
+}
+
+header {
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/online_data.jpg);
+	height: 100vh;
+	width: 100%;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: fixed;
+}
+
+.nav-area {
+	float: right;
+	list-style: none;
+	margin-top: 30px;
+	margin-right: -170px;
+}
+
+.nav-area li {
+	display: inline-block;
+}
+
+.nav-area li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: poppins;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.nav-area li a:hover {
+	background: #fff;
+	color: #333;
+}
+
+.logo {
+	float: left;
+}
+
+.logo img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: -130px;
+	margin-left: -120px;
+}
+
+.welcome-text {
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	margin: 17% 30%;
+	text-align: center;
+}
+
+.welcome-text h1 {
+	text-align: center;
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
+	font-size: 60px;
+}
+
+.welcome-text h1 span {
+	color: #00fecb;
+}
+
+#scroll a {
+	display: flex;
+	justify-content: center;
+	border: 1px solid #fff;
+	padding: 10px 25px;
+	width: 150px;
+	height: 2.5vh;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-left: 0px;
+	color: #fff;
+}
+
+#Uploadbutton,
+#myform a {
+	display: flex;
+	justify-content: center;
+	border: 1px solid #fff;
+	padding: 10px 25px;
+	width: 15vw;
+	height: 3vh;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-top: 20px;
+	margin-left: 150px;
+	color: #fff;
+}
+
+#Uploadbutton:hover {
+	background: #fff;
+	color: #333;
+}
+
+#scroll a:hover {
+	background: #fff;
+	color: #333;
+}
+
+@media (max-width:600px) {
+	.wrapper {
+		width: 100%;
+	}
+
+	.logo {
+		float: none;
+		width: 125px;
+		height: 125px;
+		text-align: center;
+		margin: auto;
+	}
+
+	.nav-area {
+		float: none;
+		margin-top: 0;
+	}
+
+	.nav-area li a {
+		padding: 5px;
+		font-size: 11px;
+	}
+
+	.nav-area {
+		text-align: center;
+	}
+
+	.welcome-text {
+		width: 100%;
+		height: auto;
+		margin: 30% 0;
+	}
+
+	.welcome-text h1 {
+		font-size: 30px;
+	}
+}

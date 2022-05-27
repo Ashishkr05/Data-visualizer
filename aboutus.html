@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>Data Visualizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/homepage.css"> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+      body {
+        font-family: 'Nunito Sans', sans-serif;
+        letter-spacing: 1.2px;
+        margin: 0;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+
+      .row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .column {
+        float: left;
+        width: 25%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(145, 110, 110, 0.2);
+        margin: 8px;
+      }
+
+      .about-section {
+        padding-bottom: 25px;
+        text-align: center;
+        justify-content: center;
+        /* background-color: #474e5d; */
+        color: rgb(232, 219, 219);
+      }
+
+      .container {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        min-height: 200px;
+        margin-bottom: 20px;
+        background: transparent;
+        /* border: 1.5px solid white; */
+        border-radius: 4px;
+        box-shadow: rgba(255, 255, 255, 0.8) 0px 5px 15px;
+        box-shadow: rgba(255, 255, 255, 0.3) 0px -2px 2px 0px, rgba(255, 255, 255, 0.25) 0px 2px 6px 2px;
+      }
+      /* #div1{
+        z-index: 1;
+      }
+      #div2{
+        z-index: 2;
+      } */
+      .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+      #bro{
+          display: none;
+      }
+
+
+      .btn {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 5px 10px;
+        color: white;
+        background-color: hsl(0, 11%, 4%);
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 2px;
+        font-size: 16px;
+        transition: all 250ms ease-out;
+        content: "Contact" !important;
+        font-family: 'Nunito Sans', sans-serif;
+        letter-spacing: 1.2px;
+        background: #004d40;
+        border: 3px solid transparent;
+      }
+
+      .active, .btn:hover {
+        /* background-color: #666; */
+        border: 3px solid #004d40;
+        background: transparent;
+        color: white;
+      }
+      .p{
+        color: white;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+        font-size: 15px;
+      }
+      .team-heading{
+        color: white;
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+      }
+
+      
+      #divB{
+        margin: 50px;
+        padding: 35px;
+      }
+      #div1{
+        position: fixed;
+      }
+      #div2{
+        position: fixed;
+      }
+
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <div id="divA">
+      <div class="wrapper">
+          <div class="logo">
+              <img src="/static/logo4.png" alt="">
+          </div>
+  <ul class="nav-area">
+      <li><a href="/">Home</a></li>
+      <li><a href="/desc">Description</a></li>
+      <li><a href="/upload">Upload Dataset</a></li>
+      <li>
+          <div class="dropdown">
+            <a class="dropbtn" href="#">select Shop</a>
+            <div class="dropdown-content"></div>
+          </div>
+      </li>
+      <li><a href="/aboutus">About Us</a></li>
+  </ul>
+  </div>
+  </div>
+  <div id="divB">
+    <h2 class="team-heading" style="text-align:center" >Team Members</h2>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2 style="color: rgb(195, 205, 157);">Jaydip Parmar</h2>
+            <p class="title">201901160</p>
+            <p class="p">parmarjaydip6402@gmail.com</p>
+            <p><button class="btn" onclick="checked(0)">Contact</button></p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2 style="color: rgb(195, 205, 157);">Parthin Baraiya</h2>
+            <p class="title">201901113</p>
+            <p class="p">parthinbaraiya003@gmail.com</p>
+            <p><button class="btn" onclick="checked(1)">Contact</button></p>
+          </div>
+      </div>
+      </div>
+    
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2 style="color: rgb(195, 205, 157);">Omik Sanghani</h2>
+            <p class="title">201901010</p>
+            <p class="p">omikpatel10@gmail.com</p>
+            <p><button class="btn" onclick="checked(2)">Contact</button></p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2 style="color: rgb(195, 205, 157);">Utsav Hirpara</h2>
+            <p class="title">201901077</p>
+            <p class="p">utsavhirpara007@gmail.com</p>
+            <p><button class="btn" onclick="checked(3)">Contact</button></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2 style="color: rgb(195, 205, 157);">Ashish Kumar</h2>
+            <p class="title">201901275</p>
+            <p class="p">ashishkumargmail.com</p>
+            <p><button class="btn" onclick="checked(4)">Contact</button></p>
+            
+          
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2 style="color: rgb(195, 205, 157);">Shubh Jhawar</h2>
+            <p class="title">201901204</p>
+            <p class="p">shubhjhawar@gmail.com</p>
+            <p><button class="btn" onclick="checked(5)">Contact</button></p>
+            <p><button id="bro" class="btn active"></button></p>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </header>
+  
+      <script>
+        let x1=document.getElementsByClassName("nav-area")[0]
+        x1=x1.getElementsByTagName("a")[4].style.backgroundColor="#4CAF50"
+        z='{{shop|tojson}}';
+        z=z.substring(1,z.length-1)
+        document.getElementsByClassName("dropdown-content")[0].innerHTML=z
+
+function check(s){
+    let userInfo1={
+          y2:s
+        }
+        const request = new XMLHttpRequest()
+        request.open('POST',`/send_github/${JSON.stringify(userInfo1)}`)
+        request.onreadystatechange = () => {
+        const flaskMessage = request.responseText;
+        if(request.readyState == 4 && request.status == 200){
+            window.location='/user'
+        }     
+    }
+        request.send()
+}
+        let con=["9664712930","7623062400","9106730297","8200085521","9783891474","7489308609"]
+        function checked(s){
+              document.getElementsByClassName("btn")[s].innerText=con[s];
+        };
+        var header = document.getElementsByClassName("row")[0];
+        var btns = header.getElementsByClassName("btn");
+        console.log(btns.length);
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace("active", "");
+          this.className += " active";
+          });
+        }
+        </script>
+</body>
+</html>

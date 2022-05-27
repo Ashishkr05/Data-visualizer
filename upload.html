@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--Code by Divinector (www.divinectorweb.com)-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How to Create responsive Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/homepage.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="fullbody">
+        <header>
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="/static/logo4.png" alt="">
+                </div>
+                <ul class="nav-area">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/desc">Description</a></li>
+                    <li><a href="/upload">Upload Dataset</a></li>
+                    <!-- <li><a href="#" onclick="document.getElementById('upload').click();">Upload Dataset</a></li> -->
+                    <li>
+                        <div class="dropdown">
+                            <a class="dropbtn" href="#">select Shop</a>
+                            <div class="dropdown-content">
+
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/aboutus">About Us</a></li>
+                </ul>
+            </div>
+            <div class="welcome-text">
+                <h1>
+                    Upload <span>CSV File</span></h1>
+                <form action="/upload/" id="myform" enctype="multipart/form-data" method="POST">
+                    <input type="file" id="file" name="file" style="visibility: hidden; width: 1px; height: 1px">
+                    <input type="submit" id="submit" name="submit" style="visibility: hidden; width: 1px; height: 1px">
+                    <a href="#" onclick="document.getElementById('file').click();">Choose File</a>
+                    <a href="#" onclick="document.getElementById('submit').click();"> Submit</a>
+                </form>
+            </div>
+        </header>
+    </div>
+    <script>
+
+        let x1 = document.getElementsByClassName("nav-area")[0]
+        x1 = x1.getElementsByTagName("a")[2].style.backgroundColor = "#4CAF50"
+        z = '{{shop|tojson}}';
+        z = z.substring(1, z.length - 1)
+        document.getElementsByClassName("dropdown-content")[0].innerHTML = z
+
+        function check(s) {
+            let userInfo1 = {
+                y2: s
+            }
+            const request = new XMLHttpRequest()
+            request.open('POST', `/send_github/${JSON.stringify(userInfo1)}`)
+            request.onreadystatechange = () => {
+                const flaskMessage = request.responseText;
+                if (request.readyState == 4 && request.status == 200) {
+                    window.location = '/user'
+                }
+            }
+            request.send()
+        }
+
+    </script>
+</body>
+
+</html>

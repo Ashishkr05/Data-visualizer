@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a UserName</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url(/static/bg14.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Nunito Sans', sans-serif;
+            letter-spacing: 1.2px;
+            color: white;
+            font-size: 24px;
+
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            margin-left: 75px;
+        }
+
+        #search1 {
+            width: 500px;
+            height: 40px;
+        }
+
+        .btn {
+            background-color: DodgerBlue;
+            /* Blue background */
+            border: none;
+            /* Remove borders */
+            color: white;
+            /* White text */
+            padding: 10px 14px;
+            /* Some padding */
+            font-size: 16px;
+            /* Set a font size */
+            cursor: pointer;
+            /* Mouse pointer on hover */
+            margin-bottom: 2px;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+
+        #conscroll {
+            position: absolute;
+            left: 350px;
+            top: 150px;
+            width: 800px;
+            height: 500px;
+            border: 3px solid white
+        }
+
+        #scroll {
+            overflow: auto;
+            position: fixed;
+            text-align: center;
+            left: 365px;
+            top: 200px;
+            width: 785px;
+            height: 450px;
+            /* border: 3px solid white; */
+        }
+
+        #conscroll h2 {
+            text-align: center;
+            position: sticky;
+            top: 15px;
+            background: linear-gradient(to right, rgb(0, 251, 255) 20%, rgb(255, 0, 0) 40%, rgb(255, 0, 144) 60%, rgb(17, 0, 255) 80%);
+            background-size: 200% auto;
+            color: #000;
+            text-decoration: underline;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 1.6s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 160% center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div id="fullbody">
+        <!-- The form -->
+        <div class="container">
+            <input type="text" placeholder="Enter your name.." name="search" id="search1">
+            <button type="submit" class="btn" onclick="check()"><i class="fa fa-plus"></i></button>
+        </div>
+        <div id="conscroll">
+            <h2>Customers list</h2>
+            <div id="scroll">
+            </div>
+        </div>
+    </div>
+    <script>
+        z = '{{index|tojson}}'
+        z = z.substring(1, z.length - 1)
+        document.getElementById("scroll").innerHTML = z
+
+
+        function check() {
+            s = document.getElementById("search1").value
+            let userInfo2 = {
+                y2: s
+            }
+            const request = new XMLHttpRequest()
+            request.open('POST', `/sendusername/${JSON.stringify(userInfo2)}`)
+            request.onreadystatechange = () => {
+                const flaskMessage = request.responseText
+            }
+            request.send();
+            if (s.length > 1) {
+                window.location = '/home'
+            }
+            // if(s.length>1) {
+            //         window.location='/home'
+            //       }  
+        }
+    </script>
+</body>
+
+</html>
